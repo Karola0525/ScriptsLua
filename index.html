@@ -8,21 +8,26 @@
         body {
             font-family: Arial, sans-serif;
             background-color: #f5f5f5;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
             margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            width: 100%;
+            max-width: 1200px;
         }
         .container {
             background-color: #ffffff;
             padding: 20px;
             border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            width: 300px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             text-align: center;
-            margin-bottom: 20px;
         }
         .script-text {
             background-color: #f0f0f0;
@@ -31,6 +36,7 @@
             margin-bottom: 15px;
             font-family: monospace;
             white-space: pre-wrap;
+            word-wrap: break-word;
         }
         button {
             padding: 10px 20px;
@@ -51,37 +57,38 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="script-text">
-        <text>
-            local block = script.Parent
-
-block.BrickColor = BrickColor.Blue()
-wait(4)
-local fire = Instance.new('Fire',block)
-fire.Color = Color3.new(0, 0, 10) -- el color de la llama
-fire.Size = 15 -- el tamaño de la llama
-fire.Heat = 5 -- la altura de la llama
-</text>
+    <div class="grid-container">
+        <div class="container">
+            <div class="script-text">
+                console.log('Hello, world!');
+            </div>
+            <button class="copy-btn">Copy Script</button>
+            <p class="status"></p>
         </div>
-        <button class="copy-btn">Copy Script</button>
-        <p class="status"></p>
-    </div>
 
-    <div class="container">
-        <div class="script-text">
-            alert('This is a test message!');
+        <div class="container">
+            <div class="script-text">
+                alert('This is a test message!');
+            </div>
+            <button class="copy-btn">Copy Script</button>
+            <p class="status"></p>
         </div>
-        <button class="copy-btn">Copy Script</button>
-        <p class="status"></p>
-    </div>
 
-    <div class="container">
-        <div class="script-text">
-            document.getElementById('example').innerHTML = 'Dynamic content!';
+        <div class="container">
+            <div class="script-text">
+                document.getElementById('example').innerHTML = 'Dynamic content!';
+            </div>
+            <button class="copy-btn">Copy Script</button>
+            <p class="status"></p>
         </div>
-        <button class="copy-btn">Copy Script</button>
-        <p class="status"></p>
+
+        <div class="container">
+            <div class="script-text">
+                fetch('https://api.example.com/data').then(response => response.json());
+            </div>
+            <button class="copy-btn">Copy Script</button>
+            <p class="status"></p>
+        </div>
     </div>
 
     <script>
